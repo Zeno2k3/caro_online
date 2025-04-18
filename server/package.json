@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
-  "author": "",
-  "type": "module",
+  "author": "Tran Minh Quan",
+  "type": "commonjs",
   "main": "index.ts",
   "scripts": {
     "dev": "nodemon babel-node  index.js",
@@ -14,7 +14,8 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "mysql2": "^3.14.0",
-    "sequelize": "^6.37.7"
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.6.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.27.0",

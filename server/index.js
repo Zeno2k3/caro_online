@@ -1,10 +1,9 @@
-import express from 'express';
-import dotenv from 'dotenv';
+const express = require('express');
+const dotenv = require('dotenv');
 
 const app = express();
 
 dotenv.config();
-
 
 const userRouter = express.Router();
 

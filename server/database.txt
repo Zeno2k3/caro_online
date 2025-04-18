@@ -1,0 +1,48 @@
+Table users {
+  user_id int [pk]
+  email varchar
+  password varchar
+  username varchar
+  avatar varchar
+}
+
+Table games {
+  game_id int [pk]
+  player_x_id int
+  player_o_id int
+  winner_id int
+} 
+
+Table games_viewers {
+  id_views int [pk]
+  game_id int 
+  user_viewers_id int
+}
+
+Table moves {
+  id int [pk]
+  game_id int
+  player_id int
+  x int
+  y int
+  mover_time datetime
+}
+
+Table chat_messages {
+  message_id int [pk]
+  game_id int
+  user_id int
+  message text
+}
+
+Ref: "users"."user_id" < "games"."player_x_id"
+Ref: "users"."user_id" < "games"."player_o_id"
+Ref: "users"."user_id" < "games"."winner_id"
+Ref: "games"."game_id" < "chat_messages"."game_id"
+Ref: "users"."user_id" < "moves"."player_id"
+Ref: "games"."game_id" < "moves"."game_id"
+Ref:   "users"."user_id" < "games_viewers"."user_viewers_id"
+Ref: "games"."game_id" < "games_viewers"."game_id"
+Ref: "users"."user_id" < "chat_messages"."user_id"
+
+
