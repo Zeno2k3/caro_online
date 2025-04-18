@@ -1,0 +1,6 @@
+// dùng để biên dịch mã ES6+ sang ES5
+
+{
+    "presets": ["@babel/preset-env"]
+
+}
