@@ -2,28 +2,27 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('chat_messages', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
-        type: Sequelize.STRING,
+      game_id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
-      password: {
-        type: Sequelize.STRING,
-        allowNull: false
+      player_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
-      email: {
-        type: Sequelize.STRING,
-        unique: true
+      message: {
+        type: Sequelize.TEXT
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('chat_messages');
   }
 };
