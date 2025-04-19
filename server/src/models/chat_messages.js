@@ -14,18 +14,21 @@ module.exports = (sequelize, DataTypes) => {
       chat_messages.belongsTo(models.games, {
         foreignKey: 'game_id',
       });
-      chat_messages.belongsTo(models.users, {
-        foreignKey: 'player_id',
+      chat_messages.belongsTo(models.user, {
+        foreignKey: 'user_id',
       });
     }
   }
   chat_messages.init({
     game_id: DataTypes.INTEGER,
-    player_id: DataTypes.INTEGER,
+    user_id: DataTypes.INTEGER,
     message: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'chat_messages',
+    tableName: 'chat_messages',
+    underscored: true,
+    timestamps: false,
   });
   return chat_messages;
 };

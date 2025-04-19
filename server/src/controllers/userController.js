@@ -1,23 +1,23 @@
 const db = require('../models');
 
 const userController = {
-    create_user: async function create_user(req, res) {
+    create_user: async function (req, res) {
         try {
-            const { username, password, email } = req.body;
-            const newUser = await db.create({username,password,email})
+            console.log(req.body);
+            const newUser = await db.user.create(req.body);
             res.status(201).json({
                 message: 'Create user success',
                 data: newUser
             });
         } catch (error) {
             res.status(500).json({
-                message: 'Error creating user',
+                message: 'Không thể tạo người dùng',
                 error: error.message
             });
         }
     },
 
-    get_user_byID: async function get_user(req, res) {
+    get_user_byID: async function (req, res) {
         try {
             const user = await userModel.findById(req.params.id);
             if (!user) {
@@ -35,7 +35,7 @@ const userController = {
         }
     },
 
-    delete_user_byID: async function delete_user(req, res) {
+    delete_user_byID: async function (req, res) {
         try {
             const deletedUser = await userModel.findByIdAndDelete(req.params.id);
             if (!deletedUser) {
@@ -53,7 +53,7 @@ const userController = {
         }
     },
 
-    update_user: async function update_user(req, res) {
+    update_user: async function (req, res) {
         try {
             const updatedUser = await userModel.findByIdAndUpdate(
                 req.params.id,

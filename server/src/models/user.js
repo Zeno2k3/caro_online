@@ -19,10 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'player_id',
       });
       user.hasMany(models.chat_messages, {
-        foreignKey: 'player_id',
+        foreignKey: 'user_id',
       });
-      user.hasMany(models.game_viewers, {
-        foreignKey: 'player_id',
+      user.hasMany(models.game_views, {
+        foreignKey: 'user_id',
       });
       // Một người chơi có thể chơi nhiều ván game với 2 vai trò khác nhau
     }
@@ -34,6 +34,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'user',
+    tableName: 'users',
+    underscored: true,
+    timestamps: false,
   });
   return user;
 };

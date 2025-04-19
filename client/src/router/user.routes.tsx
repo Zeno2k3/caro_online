@@ -1,5 +1,5 @@
 import Login from "../layout/Login"
-import Register from "../layout/Register"
+import Register from "../layout/Auth/Register"
 
 
 const user = [

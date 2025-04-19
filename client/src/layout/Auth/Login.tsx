@@ -1,6 +1,6 @@
 import { Button, Paper, Stack, TextField, Typography } from "@mui/material";
-import LogoComponet from "../components/LogoComponent";
-import theme from "../constants/theme";
+import LogoComponet from "../../components/LogoComponent";
+import theme from "../../constants/theme";
 import { useState } from "react";
 import { Link } from "react-router";
 

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      games.belongsTo(models.users, {
+      games.belongsTo(models.user, {
         foreignKey: 'player_id',
       });
       games.hasMany(models.moves, {
@@ -20,13 +20,12 @@ module.exports = (sequelize, DataTypes) => {
       games.hasMany(models.chat_messages, {
         foreignKey: 'game_id',
       });
-      games.hasMany(models.games_viewers, {
+      games.hasMany(models.game_views, {
         foreignKey: 'game_id',
       })
     }
   }
   games.init({
-    game_id: DataTypes.INTEGER,
     player_id: DataTypes.INTEGER,
     winner_id: DataTypes.INTEGER,
     role: DataTypes.STRING,
@@ -36,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'games',
     tableName: 'games',
     underscored: true,
+    timestamps: false,
   });
   return games;
 };

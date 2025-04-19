@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       moves.belongsTo(models.games, {
         foreignKey: 'game_id',
       });
-      moves.belongsTo(models.users, {
+      moves.belongsTo(models.user, {
         foreignKey: 'player_id',
       });
     }
@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'moves',
     tableName: 'moves',
     underscored: true,
+    timestamps: false,
   });
   return moves;
 };

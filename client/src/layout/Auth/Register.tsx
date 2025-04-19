@@ -1,7 +1,8 @@
 import { Button, Paper, Stack, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
-import theme from '../constants/theme'
+import theme from '../../constants/theme'
 import { Link } from 'react-router'
+
 
 const Register = () => {
   
@@ -9,11 +10,8 @@ const Register = () => {
     const [password,Setpassword] = useState<string>('')
     const [email,Setemail] = useState<string>('')
     const [passwordConfirm,SetpasswordConfirm] = useState<string>('')
-  
-  
     const handleSubmit = () => {}
-       
-  
+
   
     return (
       <Stack

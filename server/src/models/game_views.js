@@ -14,19 +14,21 @@ module.exports = (sequelize, DataTypes) => {
       game_views.belongsTo(models.games, {
         foreignKey: 'game_id',
       });
-      game_views.belongsTo(models.players, {
-        foreignKey: 'player_id',
+      game_views.belongsTo(models.user, {
+        
+        foreignKey: 'user_id',
       });
     }
   }
   game_views.init({
     game_id: DataTypes.INTEGER,
-    player_id: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'game_viewers',
-    tableName: 'game_viewers',
+    modelName: 'game_views',
+    tableName: 'game_views',
     underscored: true,
+    timestamps: false,
   });
   return game_views;
 };
