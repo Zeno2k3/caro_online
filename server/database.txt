@@ -7,10 +7,11 @@ Table users {
 }
 
 Table games {
-  game_id int [pk]
-  player_x_id int
-  player_o_id int
+  id int [pk]
+  player_id int
   winner_id int
+  role varchar
+  status varchar
 } 
 
 Table games_viewers {
@@ -35,14 +36,17 @@ Table chat_messages {
   message text
 }
 
-Ref: "users"."user_id" < "games"."player_x_id"
-Ref: "users"."user_id" < "games"."player_o_id"
-Ref: "users"."user_id" < "games"."winner_id"
-Ref: "games"."game_id" < "chat_messages"."game_id"
+
+Ref: "games"."id" < "chat_messages"."game_id"
+
 Ref: "users"."user_id" < "moves"."player_id"
-Ref: "games"."game_id" < "moves"."game_id"
+
+Ref: "games"."id" < "moves"."game_id"
+
 Ref:   "users"."user_id" < "games_viewers"."user_viewers_id"
-Ref: "games"."game_id" < "games_viewers"."game_id"
+
+Ref: "games"."id" < "games_viewers"."game_id"
+
 Ref: "users"."user_id" < "chat_messages"."user_id"
 
-
+Ref: "users"."user_id" < "games"."player_id"
